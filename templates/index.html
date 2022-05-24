@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title> inicio</title>
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://kit.fontawesome.com/db3a9100e9.js"></script>
+
+
+</head>
+<body style="background-color:rgba(41, 36, 36, 0.918);">
+<script>
+    function enviaMsg() {
+        const xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function () {
+            console.log("readyState:" + this.readyState);
+            console.log("status:" + this.status);
+
+            if (this.readyState == 4 && this.status == 200) {
+                imprimeResposta(this);
+            }
+        };
+        xhttp.onload = function () {
+            document.getElementById("resposta").innerHTML = this.responseText;
+        };
+
+        document.getElementById("saida").innerHTML = "Lance enviado com sucesso!";
+        var data = {
+            "usuario": document.getElementById("usuario").value,
+             "lance": document.getElementById("lance").value
+
+        };
+        var jsondata = JSON.stringify(data);
+        var url = "https://2sw9k8pr94.execute-api.us-east-1.amazonaws.com/leilaoLance";
+        xhttp.open("POST", url);
+        xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhttp.send(jsondata);
+    }
+
+    function imprimeResposta(xml) {
+        var xmlDoc = xml.responseXML;
+        document.getElementById("resposta").innerHTML = xmlDoc;
+    }
+</script>
+
+
+
+<form action="AC01.HTML">
+
+
+				  
+	<div1 id="current_date"; style="color: aliceblue; float: right;"></p>
+	
+		<script>
+		document.getElementById("current_date").innerHTML = Date();
+		</script>
+
+		
+    </div1>
+	<div style="background-color: rgba;">
+		<a style="color: antiquewhite;" href="#Conheça o Leilõe">Conheça o Leilão</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a style="color: antiquewhite;" href="#Sobre nós">Sobre nós</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<a style="color: antiquewhite;" href="#facebook.com.br">facebook</a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<i style="color: forestgreen;" class="fa fa-whatsapp fa-1x;"></i>
+		<a style="color: antiquewhite;" href="https://www.whatsapp.com/?lang=pt_br">Contato</a>
+	
+	  </div>
+	  <aside style= "text-align: center; color: aliceblue;">
+   
+		<h3>Bem vindo ao Leilão Web</3>
+		</header>
+		<div class="carrossel">
+			<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="2000">
+				  <ol class="carousel-indicators">
+				    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+				    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+
+				  </ol>
+				  <div class="carousel-inner">
+				    <div class="carousel-item active">
+				      <img style="height: 500px; width: 100%;" src="2.jpeg" alt="Primeiro Slide">
+				    </div>
+				    <div class="carousel-item">
+				     <a href="cadastro.html"> <img style="height: 500px; width: 100%;" src="4.jpeg" alt="Segundo Slide"></a>
+				    </div>
+				  </div>
+
+			</div>
+		</div>
+	
+        
+  <button type="button" class="btn cor" title="Abre tela para consultar"><a href="login.html">Login</a></button> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <button type="button" class="btn cor" title="Abre tela para consultar"><a href="cadastro.html">Crie sua conta aqui</a></button>
+
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>	
+
+</body>
+<footer style="background-color: aliceblue;">
+<small style="color: black;">Copyright © 2022 </small>
+
+</footer>
+
+
+	
+</html>

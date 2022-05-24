@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title> Login</title>
+	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<link href= "https://elicaetano.github/AC01_DevOps/cadastro.html">
+
+	<script src="https://kit.fontawesome.com/db3a9100e9.js"></script>
+
+<body style="background-image: url(8.webp); background-repeat: no-repeat ; background-size: cover; height: 10%; width: 50%;">
+<script>
+    function enviaMsg() {
+        const xhttp = new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function () {
+            console.log("readyState:" + this.readyState);
+            console.log("status:" + this.status);
+
+            if (this.readyState == 4 && this.status == 200) {
+                imprimeResposta(this);
+            }
+        };
+        xhttp.onload = function () {
+            document.getElementById("resposta").innerHTML = this.responseText;
+        };
+
+        document.getElementById("saida").innerHTML = "Dados enviados";
+        var data = {
+            "usuario": document.getElementById("usuario").value,
+             "senha": document.getElementById("senha").value
+
+        };
+        var jsondata = JSON.stringify(data);
+        var url = "https://pkrkryz9wa.execute-api.us-east-1.amazonaws.com/Login";
+        xhttp.open("POST", url);
+        xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xhttp.send(jsondata);
+    }
+
+    function imprimeResposta(xml) {
+        var xmlDoc = xml.responseXML;
+        document.getElementById("resposta").innerHTML = xmlDoc;
+    }
+</script>
+
+  <span class="date pull-right"></span>
+	<div1 id="current_date"; style="color: aliceblue; float: right;"></p>
+		<script>
+		document.getElementById("current_date").innerHTML = Date();
+		</script>
+    </div1>
+    <div>
+        <h3 style="color:black;text-align: center;">Faça seu login</h3>
+    </div>
+        <br><br>
+            <table>
+                <tr>
+                    <td><LABEL for="usuario">Usuario:</LABEL>
+                            <td><INPUT Type="Text" id="usuario" Name="usuario" Size="20" MaxLength="50"><BR></INPUT>
+                          <tr>
+                            <td><LABEL for="senha">senha:</LABEL>
+                            <td><INPUT Type="Text" id="senha" Name="senha" Size="20" MaxLength="50"><BR></INPUT>
+                        </table>
+                        <br>
+                        <button type="button" onclick="enviaMsg()">Entrar</button>
+                      </div>
+                        <button type="button" class="btn btn-warning"><a href="index.html">Voltar</a></button>
+                            <br>
+                      Resposta:
+                      <br>
+                      <br>
+                      <span id="resposta">---------</span>
+        </article>
+
+</body>
+
+
+
